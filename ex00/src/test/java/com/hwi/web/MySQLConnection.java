@@ -7,9 +7,9 @@ import org.junit.Test;
 
 public class MySQLConnection {
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
-	private static final String URL    = "jdbc:mysql://hostname/dbname";
-	private static final String USER   = "username";
-	private static final String PW     = "password";
+	private static final String URL    = "jdbc:mysql://hwi.mismaven.kr/hwi";
+	private static final String USER   = "hwi";
+	private static final String PW     = "hwi0817!";
 	
 	@Test
 	public void connection() throws Exception {
