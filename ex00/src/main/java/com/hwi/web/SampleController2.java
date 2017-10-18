@@ -11,9 +11,9 @@ public class SampleController2 {
 	private static final Logger logger = LoggerFactory.getLogger(SampleController2.class);
 	
 	@RequestMapping("doC")
-	public String doC( @ModelAttribute("msg") String msg) {
+	public String doC( @ModelAttribute("msg") String msg) { // ~~.com/web/doC?msg=foobar
 		logger.info("doC called........................");
 		
-		return "result";
+		return "result"; // result.jsp를 실행하게 된다.
 	}
 }

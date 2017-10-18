@@ -18,10 +18,14 @@ public class SampleController4 {
 		rttr.addFlashAttribute("msg", "This is the Message!! with redirected");
 		
 		return "redirect:/doF";
+		// return "forward:/doF";
 	}
 	
 	@RequestMapping("/doF")
-	public void doF(@ModelAttribute("msg") String msg) {
+	public String doF(@ModelAttribute("msg") String msg) {
 		logger.info("doF called............." + msg);
+		
+		// 추가 - view로 넘기는 경우.
+		return "result"; // 이전에 만들었던 result.jsp의 ${msg}로 전송
 	}
 }

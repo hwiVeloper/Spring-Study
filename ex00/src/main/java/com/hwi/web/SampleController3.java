@@ -12,7 +12,7 @@ import com.hwi.domain.ProductVO;
 public class SampleController3 {
 	private static final Logger logger = LoggerFactory.getLogger(SampleController3.class);
 	
-	@RequestMapping("/doD")
+	@RequestMapping("doD")
 	public String doD(Model model) {
 		// make sample data
 		ProductVO product = new ProductVO("Sample Product", 1000);

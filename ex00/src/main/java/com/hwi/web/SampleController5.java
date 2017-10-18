@@ -10,7 +10,7 @@ import com.hwi.domain.ProductVO;
 public class SampleController5 {
 	@RequestMapping("/doJSON")
 	public @ResponseBody ProductVO doJSON() {
-		ProductVO vo = new ProductVO("샘플상품", 3000);
+		ProductVO vo = new ProductVO("Sample Product^_^", 3000);
 		
 		return vo;
 	}
