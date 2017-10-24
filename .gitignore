@@ -43,4 +43,4 @@ atlassian-ide-plugin.xml
 /Servers
 .metadata
 .recommenders
-**/resources/**
+**/src/main/webapp/resources/**
