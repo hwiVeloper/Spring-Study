@@ -3,6 +3,7 @@ package com.hwi.service;
 import java.util.List;
 
 import com.hwi.domain.BoardVO;
+import com.hwi.domain.Criteria;
 
 public interface BoardService {
 	public void regist(BoardVO board) throws Exception;
@@ -14,4 +15,6 @@ public interface BoardService {
 	public void remove(Integer bno) throws Exception;
 	
 	public List<BoardVO> listAll() throws Exception;
+	
+	public List<BoardVO> listCriteria(Criteria cri) throws Exception;
 }
