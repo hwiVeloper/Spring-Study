@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hwi.domain.BoardVO;
+import com.hwi.domain.Criteria;
+import com.hwi.domain.PageMaker;
 import com.hwi.service.BoardService;
 
 @Controller
@@ -78,5 +80,29 @@ public class BoardController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/board/listAll";
+	}
+	
+	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
+	public void listAll(Criteria cri, Model model) throws Exception {
+		logger.info("show list Page with Criteria...........................");
+		
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(131);
+		
+		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void listPage(Criteria cri, Model model) throws Exception {
+		logger.info("show list Page with Criteria...........................");
+		
+		model.addAttribute("list", service.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(131);
+		
+		model.addAttribute("pageMaker", pageMaker);
 	}
 }
