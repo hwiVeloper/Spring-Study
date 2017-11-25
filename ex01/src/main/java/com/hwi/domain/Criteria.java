@@ -4,7 +4,7 @@ public class Criteria {
 	private int page;
 	private int perPageNum;
 	/**
-	 * 파라미터 늘어나면 관리가 어려워지기 때문에 클래스로 만들어 관리하는 것이 바람직하
+	 * 파라미터 늘어나면 관리가 어려워지기 때문에 클래스로 만들어 관리하는 것이 바람직하다.
 	 */
 	public Criteria() {
 		this.page = 1;
@@ -20,7 +20,7 @@ public class Criteria {
 	}
 	
 	public void setPerPageNum(int perPageNum) {
-		if (perPageNum <=0 || perPageNum > 100) {
+		if (perPageNum <= 0 || perPageNum > 100) {
 			this.perPageNum = 10;
 			return;
 		}
@@ -39,7 +39,7 @@ public class Criteria {
 	
 	// method for MyBatis SQL Mapper
 	public int getPerPageNum() {
-		return perPageNum;
+		return this.perPageNum;
 	}
 
 	@Override
