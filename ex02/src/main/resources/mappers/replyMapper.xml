@@ -25,4 +25,17 @@ WHERE rno = #{ rno }
 <delete id="delete">
 DELETE FROM tbl_reply WHERE rno = #{ rno }
 </delete>
+
+<select id="listPage" resultType="ReplyVO">
+SELECT *
+FROM tbl_reply
+WHERE bno = #{ bno }
+ORDER BY rno DESC
+LIMIT #{ cri.pageStart }, #{ cri.perPageNum }
+</select>
+
+<select id="count" resultType="int">
+SELECT COUNT(bno) FROM tbl_reply WHERE bno = #{ bno }
+</select>
+
 </mapper>
