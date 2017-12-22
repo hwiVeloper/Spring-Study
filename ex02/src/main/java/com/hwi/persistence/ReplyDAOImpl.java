@@ -52,6 +52,6 @@ public class ReplyDAOImpl implements ReplyDAO {
 
 	@Override
 	public int count(Integer bno) throws Exception {
-		return session.selectOne(namespace + ".count" + bno);
+		return session.selectOne(namespace + ".count", bno);
 	}
 }
