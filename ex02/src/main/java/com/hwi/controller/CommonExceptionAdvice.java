@@ -1,0 +1,30 @@
+package com.hwi.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
+
+/** 호출되는 메서드에서 발생된 Exception을 모두 처리하는 역할 */
+@ControllerAdvice
+public class CommonExceptionAdvice {
+	private static final Logger logger = LoggerFactory.getLogger(CommonExceptionAdvice.class);
+	
+	/* 절적한 타입의 Exception을 처리 */
+//	@ExceptionHandler(Exception.class)
+//	public String common(Exception e) {
+//		logger.info(e.toString());
+//		
+//		return "error_common";
+//	}
+	
+	@ExceptionHandler(Exception.class)
+	private ModelAndView errorModelAndView(Exception ex) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("error_common");
+		modelAndView.addObject("exception", ex);
+		
+		return modelAndView;
+	}
+}
