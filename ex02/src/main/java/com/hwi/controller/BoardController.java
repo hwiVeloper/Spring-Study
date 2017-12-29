@@ -35,7 +35,7 @@ public class BoardController {
 		logger.info("regist post..................");
 		logger.info(board.toString());
 		
-		service.regist(board);;
+		service.regist(board);
 		
 		model.addAttribute("result", "success");
 		
