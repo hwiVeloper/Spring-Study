@@ -30,10 +30,8 @@ public class UserVO {
 	public void setUpoint(int upoint) {
 		this.upoint = upoint;
 	}
-	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "UserVO [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", upoint=" + upoint + "]";
 	}
 }

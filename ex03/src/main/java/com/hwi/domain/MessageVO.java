@@ -46,10 +46,9 @@ public class MessageVO {
 	public void setSenddate(Date senddate) {
 		this.senddate = senddate;
 	}
-	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "MessageVO [mid=" + mid + ", targetid=" + targetid + ", sender=" + sender + ", message=" + message
+				+ ", opendate=" + opendate + ", senddate=" + senddate + "]";
 	}
 }

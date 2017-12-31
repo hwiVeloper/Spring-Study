@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.hwi.mapper.MessageMapper">
 	<insert id="create">
-		INSERT INFO tbl_message (targetid, sender, message)
+		INSERT INTO tbl_message (targetid, sender, message)
 		VALUES (#{targetid}, #{sender}, #{message})
 	</insert>
 	
