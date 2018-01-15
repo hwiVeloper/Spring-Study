@@ -71,7 +71,11 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectOne(namespace + ".listSearchCount", cri);
+	}
+
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		session.insert(namespace + ".addAttach", fullName);
 	}
 }

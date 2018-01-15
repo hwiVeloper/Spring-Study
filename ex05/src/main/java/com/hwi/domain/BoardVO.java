@@ -1,5 +1,6 @@
 package com.hwi.domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class BoardVO {
@@ -9,8 +10,22 @@ public class BoardVO {
 	private String writer;
 	private Date regdate;
 	private int viewcnt;
+	private int replycnt;
 	
+	private String[] files;
 		
+	public int getReplycnt() {
+		return replycnt;
+	}
+	public void setReplycnt(int replycnt) {
+		this.replycnt = replycnt;
+	}
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
 	public Integer getBno() {
 		return bno;
 	}
@@ -51,6 +66,7 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + ", viewcnt=" + viewcnt + "]";
+				+ regdate + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt + ", files=" + Arrays.toString(files)
+				+ "]";
 	}
 }

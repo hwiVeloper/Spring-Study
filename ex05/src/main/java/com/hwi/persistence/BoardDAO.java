@@ -27,4 +27,7 @@ public interface BoardDAO {
 	public List<BoardVO> listSearch(SearchCriteria cri) throws Exception;
 	
 	public int listSearchCount(SearchCriteria cri) throws Exception;
+	
+	/* 파일 업로드 */
+	public void addAttach(String fullName) throws Exception;
 }
