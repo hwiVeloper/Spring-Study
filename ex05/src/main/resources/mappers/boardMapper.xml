@@ -163,7 +163,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 		VALUES (
 			#{fullName},
-			LAST_INSERT_ID()
+			(SELECT MAX(bno) FROM tbl_board)
+		)
+	</insert>
+	
+	<select id="getAttach" resultType="string">
+		SELECT fullname
+		FROM tbl_attach
+		WHERE bno = #{bno} ORDER BY regdate
+	</select>
+	
+	<delete id="deleteAttach">
+		DELETE FROM tbl_attach WHERE bno = #{bno}
+	</delete>
+	
+	<insert id="replaceAttach">
+		INSERT INTO tbl_attach (
+			fullname,
+			bno
+		)
+		VALUES (
+			#{fullName},
+			#{bno}
 		)
 	</insert>
 </mapper>
