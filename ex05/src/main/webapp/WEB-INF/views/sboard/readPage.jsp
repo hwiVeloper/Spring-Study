@@ -243,7 +243,9 @@ $(document).ready(function() {
 		</h3>
 		<div class="timeline-body">{{replytext}}</div>
 		<div class="timeline-footer">
+			{{ #eqReplyer replyer }}
 			<a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifyModal">수정</a>
+			{{ /eqReplyer }}
 		</div>
 	</div>
 </li>
@@ -258,6 +260,14 @@ Handlebars.registerHelper("prettifyDate", function(timeValue) {
 	var month = dateObj.getMonth() + 1;
 	var date = dateObj.getDate();
 	return year + "/" + month + "/" + date;
+});
+
+Handlebars.registerHelper("eqReplyer", function(replyer) {
+	var accum = '';
+	if (replyer == '${login.uid}') {
+		accum += 111;
+	}
+	return accum;
 });
 
 var printDate = function (replyArr, target, templateObject) {
@@ -336,9 +346,10 @@ var printPaging = function (pageMaker, target) {
 			<div class="box-header">
 				<h3 class="box-title">댓글작성</h3>
 			</div>
+			<c:if test="${ not empty login }">
 			<div class="box-body">
 				<label for="">작성자</label>
-				<input type="text" class="form-control" placeholder="USER ID" id="newReplyWriter" required />
+				<input type="text" class="form-control" placeholder="USER ID" id="newReplyWriter" value="${ login.uid }" readonly required />
 				<label for="">내용</label>
 				<input type="text" class="form-control" placeholder="REPLY TEXT" id="newReplyText" required />
 			</div>
@@ -346,6 +357,13 @@ var printPaging = function (pageMaker, target) {
 			<div class="box-footer">
 				<button class="btn btn-secondary" id="replyAddBtn">작성완료</button>
 			</div>
+			</c:if>
+			
+			<c:if test="${ empty login }">
+				<div class="box-body">
+					<div><a href="javascript:goLogin();">Login Pleases</a></div>
+				</div>
+			</c:if>
 		</div>
 		
 		<!-- Timeline -->
