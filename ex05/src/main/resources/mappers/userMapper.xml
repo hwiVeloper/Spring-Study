@@ -13,4 +13,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE uid = #{uid}
 		AND upw = #{upw}
 	</select>
+	
+	<update id="keepLogin">
+		UPDATE tbl_user
+		SET sessionkey = #{sessionId},
+			sessionLimit = #{next}
+		WHERE uid = #{uid}
+	</update>
+	
+	<select id="checkUserWithSessionKey" resultType="UserVO">
+		SELECT *
+		FROM tbl_user
+		WHERE sessionKey = #{value}
+		AND sessionLimit > now()
+	</select>
 </mapper>

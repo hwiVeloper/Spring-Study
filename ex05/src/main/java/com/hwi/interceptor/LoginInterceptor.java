@@ -1,5 +1,6 @@
 package com.hwi.interceptor;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,7 +26,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (userVO != null) {
 			logger.info("new login succss");
 			session.setAttribute(LOGIN, userVO);
-//			response.sendRedirect("/");
+			
+			// 쿠키 생성
+			if (request.getParameter("useCookie") != null) {
+				Cookie loginCookie = new Cookie("loginCookie", session.getId());
+				loginCookie.setPath("/");
+				loginCookie.setMaxAge(60 * 60 * 24 * 7);
+				response.addCookie(loginCookie);
+			}
+			
+//			response.sendRedirect("/");			
 			Object dest = session.getAttribute("dest");
 			
 			response.sendRedirect(dest != null ? (String)dest : "/");
